@@ -18,31 +18,34 @@ public class TextServiceImpl implements TextService {
 	@Autowired
 	private TextRepository textRepository;
 	
+	// Methode um alle Texte abzufragen
 	@Override
 	public List<Text> getAllTexts() {
 		log.debug("GET -> All");
 		return textRepository.findAll();
 	}
 	
+	// Methode um einzelne Texte zu speichern
 	@Override
 	public Text saveText(Text text ) {
 		log.debug("POST -> " + text.getId());
 		return textRepository.save(text);
 	}
 	
+	// Methode um einzelne Texte abzufragen
 	@Override
 	public Text getTextById(Long id) {
 		Text text = textRepository.findById(id).get();
 		log.debug("GET -> ID: " + text.getId());
 		return textRepository.findById(id).get();
 	}
-	
+	// Methode um geänderte Texte zu speichern
 	@Override
 	public Text updateText(Text text) {
 		log.debug("POST -> Update -> ID: " + text.getId());
 		return textRepository.save(text);
 	}
-	
+	// Methode um einzelne Texte zu löschen
 	@Override
 	public void deleteTextById(Long id) {
 		Text text = textRepository.findById(id).get();
