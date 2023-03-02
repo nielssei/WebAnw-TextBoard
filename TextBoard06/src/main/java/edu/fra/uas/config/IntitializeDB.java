@@ -7,6 +7,7 @@ import edu.fra.uas.text.model.Text;
 import edu.fra.uas.text.service.TextService;
 import jakarta.annotation.PostConstruct;
 
+// Hier werden Test Texte erstellt und dem Repository mithilfe von UserService hinzugefügt.
 @Component
 public class IntitializeDB {
 	
