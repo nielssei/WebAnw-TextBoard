@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.fra.uas.text.model.Text;
 import edu.fra.uas.text.service.TextService;
 
+// REST Schnittstelle, um Daten auch ohne Frontend abzufragen und zu verarbeiten
 @RestController
 @RequestMapping("/api")
 public class TextRestController {
@@ -24,6 +25,7 @@ public class TextRestController {
 	@Autowired
 	private TextService textService;
 	
+	// Gibt alle Attribute aller Texte als JSON zurück
 	@GetMapping
 	public ResponseEntity<List<Text>> getAllTexts() {
 		    
@@ -32,6 +34,7 @@ public class TextRestController {
 			
 	}
 	
+	// Gibt alle Attribute eines Textes als JSON zurück
 	@GetMapping("/{id}")
 	public ResponseEntity<Text> getTextById(@PathVariable Long id) {
 		   
@@ -39,7 +42,7 @@ public class TextRestController {
 		return new ResponseEntity<>(text, HttpStatus.OK);
 			
 	}
-	
+	// Möglichkeit, neuen Text anzulegen. Liest aus HTTP-Request Body aus.
 	@PostMapping
 	public ResponseEntity<Text> createText(@RequestBody Text text) {
 	    
@@ -47,8 +50,8 @@ public class TextRestController {
 		return new ResponseEntity<>(text, HttpStatus.CREATED);
 			
 	}
-	
-	@PutMapping("/{id}")
+	// Handlet Requests zur Bearbeitung einzelner Texte. Liest Text ID aus URL, Atribute aus Body
+	PutMapping("/{id}")
 	public ResponseEntity<Text> editText(@RequestBody Text text, @PathVariable Long id) {
 
 		Text existingText = textService.getTextById(id);
@@ -62,7 +65,7 @@ public class TextRestController {
 		return new ResponseEntity<>(text, HttpStatus.OK);
 			
 	}
-	
+	// Handlet Requests zur Löschung einzelner Texte
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Text> deleteById(@PathVariable("id") Long id) {
 	
