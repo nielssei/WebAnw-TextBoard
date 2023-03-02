@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+// definiert die Attribute einer einzelnen Text-Entität
 @Entity
 public class Text {
  
