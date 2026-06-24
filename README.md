@@ -1,0 +1,1 @@
+My first Java project at university — a small text board (CRUD) built with Spring Boot. Features a Thymeleaf web frontend and a separate REST API over a shared service layer, backed by JPA and an in-memory H2 database.
